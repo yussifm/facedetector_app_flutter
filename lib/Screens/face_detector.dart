@@ -36,7 +36,11 @@ class _MyHomePageState extends State<MyHomePage> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               if (faceDetectorChecking)
-                const CircularProgressIndicator.adaptive(),
+                Container(
+                    width: 50,
+                    height: 50,
+                    margin: EdgeInsets.all(10),
+                    child: const CircularProgressIndicator.adaptive()),
               if (!faceDetectorChecking && imageFile == null)
                 Container(
                   width: 300,
