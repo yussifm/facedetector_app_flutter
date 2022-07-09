@@ -36,18 +36,16 @@ class _MyHomePageState extends State<MyHomePage> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               if (faceDetectorChecking)
-                Container(
-                    width: 50,
-                    height: 50,
-                    margin: EdgeInsets.all(10),
-                    child: const CircularProgressIndicator.adaptive()),
+                const CircularProgressIndicator.adaptive(),
               if (!faceDetectorChecking && imageFile == null)
                 Container(
-                  width: 300,
-                  height: 300,
-                  color: Colors.grey[400],
-                ),
-              if (imageFile != null)
+                    width: 300,
+                    height: 300,
+                    color: Colors.grey[400],
+                    child: Center(
+                      child: Text("Pick a Image of a Person Face"),
+                    )),
+              if (imageFile != null && !faceDetectorChecking)
                 Image.file(
                   File(imageFile!.path),
                   width: 350,
